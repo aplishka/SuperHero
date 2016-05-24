@@ -1,0 +1,235 @@
+.ironman {  
+   position: absolute;
+   z-index: 900; 
+   margin-left: 0;
+   margin-bottom:135px;  
+   bottom:0;
+}
+
+.ironman .helmet {
+  width: 22px;
+  height: 34px;
+  background: #ab3300;
+  position: absolute;
+  margin-top: -33px;
+  margin-left: 44px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.ironman .helmet::before {
+  content:"";
+  width:7px;
+  height:2px;
+  background:white;
+  position:absolute;
+  margin-top:10px;
+  margin-left:0px;
+  z-index:3; 
+  box-shadow:15px 0 0 0 white; 
+}
+
+.ironman .mask {
+  width:10px;
+  height:18px;
+  background: #deb800;
+  position:relative;
+  margin-top:7px; 
+  margin-left:6px;
+}
+
+.ironman .mask::before {
+  content:"";
+  width:13px;
+  height:18px;
+  background: #deb800;
+  position:absolute;
+  transform:rotate(60deg);   
+  margin-top:-3px; 
+  margin-left:4px; 
+}
+
+.ironman .mask::after {
+  content:"";
+  width:13px; 
+  height:18px;
+  background: #deb800;
+  position:absolute;
+  transform:rotate(-60deg);  
+  margin-top:-3px; 
+  margin-left:-5px;
+}
+
+.ironman .body {
+  height: 53px;
+  width: 107px; 
+  border-radius: 0 0 110px 110px;
+  background: #ab3300;
+  box-shadow: inset 10px 0px 0 0 #ab3300, inset 20px 0px 0 0 #ab3300; 
+  /*box-shadow: inset 10px 0px 0 0 darken(#ab3300,5%), inset 20px 0px 0 0 darken(#ab3300,3%); */
+  padding-top:11px; 
+  z-index:50;
+}
+
+.ironman .body::before {
+  content:"";
+  width:32px;
+  height:32px;
+  background: #ab3300;
+  /*background: darken(#ab3300,5%);*/
+  position:absolute;
+  border-radius:50%;
+  margin-left:-15px; 
+  margin-top:-18px;
+  box-shadow:105px 0 0 0 #ab3300;
+  z-index:50;
+}
+
+.ironman .body::after {
+  content:"";
+  width:40px;
+  height:30px;
+  position:absolute;
+  margin-top:20px;
+  margin-left:35px;
+  background-image: linear-gradient(
+      to right, 
+      #ab3300, 5%,
+      #ab3300 15%,
+      #ab3300 15%,
+      #ab3300 29%,
+      #ab3300 20%,
+      #ab3300 20%
+  );
+/*  background-image:
+    linear-gradient(
+      to right, 
+      darken(#ab3300, 5%),
+      darken(#ab3300, 5%) 15%,
+      darken(#ab3300, 3%) 15%,
+      darken(#ab3300, 3%) 29%,
+      #ab3300 20%,
+      #ab3300 20%
+    );*/
+}
+
+.ironman .power {
+  width:17px;
+  height:17px;
+  background:white;
+  border-radius:50%;
+  margin:0 auto;
+  box-shadow:0 0 0 5px #deb800; 
+}
+
+.ironman .left-leg {
+  width:10px;
+  height:90px;
+  background: #c98700; 
+  position:absolute;
+  margin-left:35px;
+  margin-top:12px;
+  border-top-right-radius:10px;
+}
+
+.ironman .left-leg::before {
+  content:"";
+  width:25px;
+  height:65px;
+  background: #ab3300;
+  /*background: darken(#ab3300,5%);*/
+  position:absolute;
+  border-top-right-radius:20px;
+  margin-top:60px;
+  margin-left:-10px;
+}
+
+.ironman .right-leg {
+  width:10px;
+  height:90px;
+  background: #deb800; 
+  position:absolute;
+  margin-left:65px;
+  margin-top:12px;
+  border-top-left-radius:10px;
+}
+
+.ironman .right-leg::before {
+  content:"";
+  width:25px;
+  height:65px;
+  background: #ab3300;
+  position:absolute;
+  border-top-left-radius:20px;
+  margin-top:60px;
+  margin-left:-5px;
+}
+
+.ironman .left-arm{ 
+  width:10px;
+  height:45px;
+  background: #c98700;
+  position:absolute;
+  margin-left:-6px;
+  margin-top:18px;
+  border-bottom-left-radius:20px;
+}
+
+.ironman .left-arm::before {
+  content:"";
+  height: 60px;
+  width: 31px; 
+  border-radius: 60px 0px 0px 60px;
+  background: #ab3300;
+  /*background: darken(#ab3300,5%);*/
+  position:absolute;
+  margin-top:30px;
+  margin-left:-21px;
+  z-index:-1;  
+}
+
+.ironman .left-arm::after {
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background: #ab3300;
+  /*background: darken(#ab3300,5%);*/
+  position:absolute;
+  margin-top:80px;
+  margin-left:5px;
+}
+   
+.ironman .right-arm{ 
+  width:10px;
+  height:45px;
+  background: #c98700;
+  position:absolute;
+  margin-left:105px;
+  margin-top:18px;
+  border-bottom-right-radius:20px;
+}
+
+.ironman .right-arm::before {
+  content:"";
+  height: 60px;
+  width: 31px; 
+  border-radius: 0px 60px 60px 0px;
+  background: #ab3300;
+  position:absolute;
+  margin-top:30px;
+  margin-left:0px;
+  z-index:-1;  
+}
+
+.ironman .right-arm::after {
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background: #ab3300;
+  position:absolute;
+  margin-top:80px;
+  margin-left:-5px;    
+}

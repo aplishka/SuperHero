@@ -1,0 +1,199 @@
+//CAPTAIN AMERICA    
+.captain {
+ position: absolute;
+ z-index: 1000; 
+ margin-left: 355px;
+ bottom: 0px;
+ margin-bottom: 146px;
+   .head {
+    width: 21px;
+    height: 36px;
+    background: $body;
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 44px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: $white;
+    text-align: center;
+    font-size: 0.6em;
+    font-weight: bold; 
+    &::before{
+    content:"";
+    width: 21px;
+    height: 17px; 
+    background: $skin;
+    position: absolute;
+    margin-left: -7px;
+    margin-top: 19px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: inset 8px 0 0 0 darken($skin, 5%);
+  }
+   &::after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    background: $skin;
+    border-radius: 50%;
+    margin-top: 16px;
+    margin-left: -5px;
+    
+    }   
+}
+
+ 
+ .body 
+    {
+    height: 53px;
+    width: 107px; 
+    border-radius: 0 0 110px 110px;
+    background: $body;
+    box-shadow: inset 8px 0px 0 0 $bodyShadow, inset 17px 0px 0 0 darken($body,3%);
+    z-index: 5; 
+    &::before {
+    content:"";
+    width: 133px;
+    height: 30px;
+    margin-left: -14px;  
+    position: absolute;  
+    border-radius: 30px;  
+    background-image:  linear-gradient(to right,$bodyShadow, $body);
+    z-index:-1;  
+    }
+    &::after{
+    content:'';  
+    width: 30px;
+    height: 10px;
+    position: absolute;
+    margin-top: 49px;
+    margin-left: 38px; 
+    background-image: linear-gradient(to right, darken($red,5%), darken($red,5%) 30%, $whiteShadow 30%, $whiteShadow 70%, $red 70%, $red 100%);  
+    }
+     .star{
+      @include star(18px,43px)
+      }
+   
+  }
+  
+  .arms {
+    width: 10px;
+    height: 60px;
+    position: absolute;
+    background: $whiteShadow;
+    margin-top: -30px;
+    margin-left: 10px;
+    box-shadow: 75px 0 0 0 $whiteShadow;
+    z-index: -1;
+    &::before{
+      content:"";
+      width: 28px;
+      height: 50px;
+      position: absolute;
+      background: $whiteShadow;
+      border-radius: 30% 50%; 
+      margin-left: -18px;
+      margin-top: -3px;
+      box-shadow: 95px 0 0 0 $whiteShadow;
+    }
+  }
+  .shield {
+        width: 40px;
+        height: 40px;
+        background: $body;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 100;
+        margin-left: 75px;
+        margin-top: 30px;
+        box-shadow: 0 0 0 8px $whiteShadow, 0 0 0 18px $shield;
+        transform:rotate(-30deg);
+        .star{
+      @include star(15px,10px); 
+      }
+      }  
+        
+  .hands {
+    width: 15px;
+    height: 30px;
+    position: absolute;
+    margin-top: 29px;
+    margin-left: 8px;  
+    background: darken($red, 3%); 
+    transform: skew(10deg); 
+    &::before {
+      content:"";
+      width: 10px;
+      height: 30px;
+      background: darken($verdeHulk, 2%);
+      position: absolute;
+      margin-left: 12px;  
+      transform: skew(-10deg);
+      }
+      &::after {
+      content:"";
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      position: absolute;
+      margin-top: 21px;
+      margin-left: -1px; 
+      background: darken($red, 3%);
+      }  
+    }
+    .legs {
+      width: 8px;
+      height: 100px;
+      background: $bodyShadow;
+      position:absolute;
+      margin-left: 38px;
+      margin-top: 5px;
+      box-shadow: 22px 0 0 0 $body;
+      &::before {
+        content:"";
+        width: 30px;
+        height: 5px;
+        background: darken($red,20%);
+        position:absolute;     
+     }
+      &::after {
+      content: "";  
+      width: 14px;
+      height: 9px;
+      background-image: linear-gradient(to right, $bodyShadow, $body);
+      position: absolute;
+      margin-left: 8px;  
+      margin-top: 5px;
+      }    
+    }
+    .boots {
+      width: 10px;
+      height: 41px;
+      position: absolute;
+      margin-top: 105px;
+      margin-left: 37px;
+      background: darken($red, 10%);
+      box-shadow: 22px 0 0 0 $red;
+      &::after {
+        content:"";
+        width: 25px;
+        height: 2px;
+        position: absolute;
+        background: darken($red, 10%);
+        margin-top: 39px;
+        margin-left: -15px;
+        box-shadow: 40px 0 0 0 $red;
+        }
+      &::before{
+        content: "";
+        width: 18px;
+        height: 12px;
+        background: darken($red, 10%);
+        position: absolute;
+        margin-left: -4px;
+        box-shadow: 22px 0 0 0 $red;
+        }  
+      }  
+}    
+    

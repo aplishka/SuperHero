@@ -1,0 +1,227 @@
+//HULK
+.hulk{
+  position:absolute;
+  margin-left:200px;
+  bottom:0px;
+  margin-bottom:300px; 
+.head {
+  width: 4.713em;
+  position:absolute;
+  margin-top:-2.75em;
+  margin-left:3.563em;    
+    border-bottom: 3.75em solid $verdeHulk;
+    border-left: 0.938em solid transparent;
+    border-right: 0.938em solid transparent;
+    height: 0;
+  z-index:10;
+  &::after {
+    content:"";
+    width:2.25em;
+    height:0.375em;
+    position:absolute;
+    margin-top:0.538em;
+    margin-left:0.313em;
+    background:#034600;
+  }
+  &::before{
+    content:"";
+    width:3.25em;
+    height:0.75em;
+    position:absolute;
+    margin-top:-0.75em;
+    margin-left:-0.25em;
+    background:#034600;
+    border-top-left-radius: 1.875em;
+    border-top-right-radius:1.875em;
+  }
+}
+.mouth {
+  width:31px;
+  height:0px;
+  position:absolute;
+  margin-top:25px;
+  margin-left:8px;
+  overflow:hidden;
+  background-image:
+        linear-gradient(
+          to bottom,
+          #fff,
+          #fff 25%,
+          #4b0a00 25%,
+          #4b0a00 70%,
+          #fff 75%,
+          #fff 100%
+        );
+ border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  animation: mouthOpen $time infinite;
+  &::before{
+    content:"";
+    width: 10px;
+    height:7px;
+    position:absolute;
+    background:#902e2b;
+    margin-top:9px;
+    margin-left:11px;
+    border-top-left-radius:0.5em; 
+    border-top-right-radius: 0.5em;
+
+  }
+}
+.right-arm{
+   width:13.313em;
+    height:13.75em;
+    margin-top:1em;
+    margin-left:2em;
+    border-radius:50%;
+    background: #b5b500;
+    position:absolute;
+    clip: rect(-1em, 11.2em, 12.55em, 7.625em);
+    animation: hulkRightarm $time infinite;
+  &::after{
+    content:"";
+    width:12.063em;
+    height:9.625em;
+    border-radius:50%;
+    background:white;
+    position:absolute;
+    transform: translateY(1.25em);
+    margin-left:-3.313em;
+  }
+}
+.left-arm
+{
+   width:13.313em;
+    height:13.75em;
+    margin-top:1em;
+    margin-left:-4.3em;
+    border-radius:50%;
+    background: #949400;
+    position:absolute;
+    clip: rect(-0.188em, 6.1em, 13.875em, 2.3em);
+    animation: hulkLeftarm $time infinite;
+  &::after{
+    content:"";
+    width: 12.063em;
+    height: 9.625em;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    transform: translateY(1.25em);
+    margin-left: 4.563em;
+  }
+}
+.fist{
+   width: 4.375em;
+  height: 4.375em;
+  position: absolute;
+  border-radius: 50%;
+  margin-top: 11.7em;
+  margin-left: -2.1em;
+  background:#949400;
+  box-shadow: 11.1em 0 0 #b5b500;
+  z-index: 10;
+  animation: hulkHands $time infinite; 
+}
+
+.body {
+  width: 12.5em;
+  height: 12.5em;
+  background: $verdeHulk;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: inset
+    1.125em 0 0 darken($verdeHulk, 5%),
+    -0.938em 0 0 darken($verdeHulk, 10%);
+  z-index:10;
+  &::before{
+    content:"";
+    width: 0.75em;
+    height: 0.75em;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 3.125em;
+    margin-left: 1.375em;
+    background: darken($verdeHulk,10%);
+    box-shadow: 7.625em 0 0 darken($verdeHulk, 10%);
+  }
+  &::after{
+    content:"";
+    position:absolute;
+    width:0.313em;
+    height:0.313em;
+    border-radius:50%;
+    margin-top:10em;
+    margin-left:5.625em;
+    background:darken($verdeHulk,10%);
+    box-shadow: 0 2.625em 0 #9ac7f1
+  }
+}
+.right-leg {
+  width:0.625em;
+  height:6.438em;
+  position:absolute;
+  margin-left:4.25em;
+  margin-top:12.3em;
+  background-image:
+        linear-gradient(
+          to bottom,
+          darken($hulkPants,20%),
+          darken($hulkPants,20%) 50%,
+          darken($verdeHulk,20%) 50%,
+          darken($verdeHulk,20%) 100%
+        );
+   animation:hulkPants2 $time infinite ;
+  &::after{
+    content:"";
+    width:0.938em;
+    height:0.875em;
+    position:absolute;
+    margin-left:0.625em;
+    background:darken($hulkPants, 10%);
+  }
+  &::before {
+    content:"";
+    width:1.125em;
+    height:0.188em;
+    position:absolute;
+    margin-top:6.25em;
+    margin-left:-1.125em;
+    background:darken($verdeHulk,20%);
+  }
+}
+.left-leg{
+  width:0.625em;
+  height:6.438em;
+  position:absolute;
+  margin-left:6.688em;
+  margin-top:12.3em;
+  background-image:
+        linear-gradient(
+          to bottom,
+          $hulkPants,
+          $hulkPants 50%,
+          $verdeHulk 50%,
+          $verdeHulk 100%
+        );
+  animation:hulkPants $time infinite ;
+  &::after{
+    content:"";
+    width:0.938em;
+    height:0.875em;
+    position:absolute;
+    background:$hulkPants;
+    margin-left:-0.938em;
+  }
+  &::before {
+    content:"";
+    width:1.125em;
+    height:0.188em;
+    position:absolute;
+    margin-top:6.25em;
+    margin-left:0.625em;
+    background:$verdeHulk;
+  }
+}
+}    
+    

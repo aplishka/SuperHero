@@ -1,0 +1,63 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="hvg.css">
+	<link rel="stylesheet" type="text/css" href="a.css">
+</head>
+
+<body>
+	<section id="createContainer">
+		<section id="buttonContainer">
+		    <div id="createHeroContainer">
+		      <div>
+		        <label for="heroMainColor">Main color:</label>
+		        <input type="text" id="heroMainColor" />
+		      </div>
+		      <div>
+		        <label for="heroSecondaryColor">Secondary color:</label>
+		        <input type="text" id="heroSecondaryColor" />
+		      </div>
+		      <div>
+		        <label for="heroTertiaryColor">Tertiary color:</label>
+		        <input type="text" id="heroTertiaryColor" />
+		      </div>
+		    </div>
+			<button id="createHero">
+				Create Hero
+			</button>
+			<button id="createVillain" class="hidden">
+				Create Villain
+			</button>
+			<button id="fight" class="hidden">
+				Make them fight!
+			</button>
+		</section>
+
+		<section id="textContainer">
+			<text id="heroText" style="color: DarkGreen;" class="hidden"></text>
+			<text id="villainText" style="color: DarkRed;" class="hidden"></text>
+			<section id="fightText">
+				<strong id="fightTextTitle" class="hidden">Fight Log:</strong>
+			</section>
+		</section>
+
+		<h1 id="youWin" class="hidden">You Win!!</h1>
+		<h1 id="youLose" class="hidden">You Lose :( :(</h1>
+		<button id="tryAgain" class="hidden">Try Again?</button>
+	</section>
+	<section id="visualContainer">
+		<div id="heroContainer" class="heroContainer"></div>
+		<div id="villainContainer" class="heroContainer"></div>
+	</section>
+
+	<section id="footer">
+		&copy; Alex Plishka, 2016
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>	<!-- jQuery -->
+	<script src="http://chancejs.com/chance.min.js"></script>									<!-- chance.js -->
+	
+  	<script src="a.js"></script>																<!-- Local js -->
+  	<script src="name.js"></script>
+	<script src="hvg.js"></script>
+</body>
+</html>

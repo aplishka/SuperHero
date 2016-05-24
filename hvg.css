@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+}
+
+text {
+	display: block;
+	margin: 5px 0;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	background: #c0cc0c;
+	padding: 20px 0;
+	width: 100%;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.heroContainer {
+	width: 45%;
+	margin: auto;
+	padding: 10px;
+	display: inline-block;
+}

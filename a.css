@@ -1,0 +1,208 @@
+/*@import "compass/css3";*/
+
+@import url(http://fonts.googleapis.com/css?family=Bangers);
+  
+*, *:before, *:after { 
+  box-sizing: border-box;
+}
+
+body {
+  background: #c0c0c0;
+   font-size:16px;
+    position:absolute;
+    width:100%;
+    height:100%;
+   font-family: 'Bangers';
+}
+
+#visualContainer {
+  position:relative;
+  width:550px;
+  height:365px;
+  margin:15% auto;
+  /*animation: shake $time infinite;*/
+}
+
+.hide {
+  display: none;
+}
+
+/*
+$verdeHulk: #bdbd00;
+$hulkPants:#581bbb;
+$body:#43abf0;
+$bodyShadow:#29708f;
+$white:#fff;
+$whiteShadow:#ffffcb;
+$red:#b63700;
+$skin: #fdb0a4;
+$shield:#c53905;
+$thorbody:#004278;
+$thorshadow:#00272b;
+$thorskin:#ffcee7;
+$thorskinShadow:#ffc688;
+$hammer:#382727;
+$time:7s;
+
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+@mixin star($top, $left) {
+   display: block;
+   color: $white;
+   width: 0px;
+   height: 0px;
+   border-right:  10px solid transparent;
+   border-bottom: 7px  solid $white;
+   border-left:   10px solid transparent;
+   margin-top: $top;
+   margin-left: $left; 
+   position: absolute;
+   transform:    rotate(35deg);
+   &::before {
+   border-bottom: 8px solid $white;
+   border-left: 3px solid transparent;
+   border-right: 3px solid transparent;
+   position: relative; 
+   height: 0;
+   width: 0;
+   top: -4px;
+   left: -6px;
+   display: block;
+   content: '';
+   transform: rotate(-35deg);
+}
+   &::after {
+   position: absolute;
+   display: block;
+   color: red;
+   top: 0px;
+   left: -10px;
+   width: 0px;
+   height: 0px;
+   border-right: 10px solid transparent;
+   border-bottom: 7px solid $white;
+   border-left: 10px solid transparent;
+   transform: rotate(-70deg);
+   content: '';
+}
+}
+    
+  */
+
+/*Hand Animation*/
+
+/*@include keyframes(shake) { 
+ 78%, 80%,82%,84%,86%,88%,90%,92% { 
+    
+    top:3px;
+    left:2px; 
+  }
+  79%,81%,83%,85%,87%,89%,91% {
+   
+    top:0px;
+    left:-2px;
+  } 
+  
+}
+
+@include keyframes(mouthOpen) {
+  77%{height:0px;}
+  80%{
+    height:22px;
+  }
+  93%{
+    height:22px;
+    opacity:1;
+  }
+  95%{
+    height:0px;
+    opacity:0;
+  }
+
+}
+
+
+@include keyframes(hulkHands){
+ 6%{
+   box-shadow: 11.1em 0 0 #b5b500;
+ }
+ 77%{
+   box-shadow: 11.1em 0 0 #b5b500;
+   margin-left:-2.1em; 
+   @include translate (0,0)
+  }
+  80%{
+    margin-left:0.5em; 
+    box-shadow:8.5em 0 0 #b5b500;
+    @include translate (-0.9em,-19.9em)
+   
+  }
+  93%{
+    margin-left:0.5em;
+    box-shadow:8.5em 0 0 #b5b500;
+    @include translate (-0.9em,-19.9em)
+  }
+  94%{
+    box-shadow: 11.1em 0 0 #b5b500;
+    margin-left:-2.1em; 
+    @include translate (0em,-0em)
+  }
+}
+
+@include keyframes(hulkRightarm){
+  77%{
+    margin-top:1em;
+    margin-left:2em;
+    clip: rect(-1em, 11.2em, 12.55em, 7.625em);
+  }
+  80%{
+    margin-top:-8.125em;
+    margin-left:2.5em;
+    clip: rect(0.563em, 13.363em, 13.75em, 6.625em);
+  }
+  93%{
+    margin-top:-8.125em;
+    margin-left:2.5em;
+    clip: rect(0.563em, 13.363em, 13.75em, 6.625em);
+  }
+  95%{
+    margin-top:1em;
+    margin-left:2em;
+    clip: rect(-1em, 11.2em, 12.55em, 7.625em);
+  }
+}
+@include keyframes(hulkLeftarm){
+  77%{
+    margin-top:1em;
+    margin-left:-4.3em;
+    clip: rect(-0.188em, 6.1em, 13.875em, 2.3em);
+  }
+  80%{
+    margin-top:-8.125em;
+    margin-left:-4.375em;
+    clip: rect(-0.188em, 6.563em, 13.875em, 0em);
+  }
+  93%{
+    margin-top:-8.125em;
+    margin-left:-4.375em;
+    clip: rect(-0.188em, 6.563em, 13.875em, 0em);
+  }
+  95%{
+    margin-top:1em;
+    margin-left:-4.3em;
+    clip: rect(-0.188em, 6.1em, 13.875em, 2.3em);
+  }
+  }*/
