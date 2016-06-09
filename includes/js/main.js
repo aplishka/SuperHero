@@ -5,7 +5,7 @@
 
     $("#createHero").click(function() {
       hero = new Hero().initHeroClass();
-      $("#heroText").html(hero.toString());
+      writeHeroInfoToCard("#heroInfoColumn .info", hero);
       $("#heroText").toggleClass("hidden");
 
       var heroDesign = createRandomHero(hero.getName(), hero.getHeroName());
@@ -15,9 +15,18 @@
       createRandomPawn();
     });
 
+    var writeHeroInfoToCard = function(cardId, hero) {
+      var infoBox = $(cardId);
+      $("#name", $(cardId)).text(hero.getHeroName());
+      $("#secretIdentity", $(cardId)).text(hero.getName());
+      $("#race", $(cardId)).text(hero.getRace());
+      $("#nationality", $(cardId)).text(hero.getCountry());
+      $("#class", $(cardId)).text(hero.getHeroClass());
+    };
+
     var createRandomPawn = function() {
       villain = new Hero().initHeroClass().setHeroName("Grunt");
-      $("#villainText").html(villain.toString());
+      writeHeroInfoToCard("#villainInfoColumn .info", villain);
       $("#villainText").toggleClass("hidden");
 
       var heroDesign = createPawn(villain.getName(), villain.getHeroName());
@@ -255,6 +264,18 @@
 
       this.getName = function() {
         return this.name;
+      };
+
+      this.getRace = function() {
+        return this.race;
+      };
+
+      this.getCountry = function() {
+        return this.country;
+      };
+
+      this.getHeroClass = function() {
+        return this.heroClass;
       };
 
       // Setters
