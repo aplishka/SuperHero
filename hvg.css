@@ -18,10 +18,3 @@ text {
 .hidden {
 	display: none !important;
 }
-
-.heroContainer {
-	width: 45%;
-	margin: auto;
-	padding: 10px;
-	display: inline-block;
-}

@@ -8,25 +8,39 @@
 
 body {
   background: #c0c0c0;
-   font-size:16px;
-    position:absolute;
-    width:100%;
-    height:100%;
-   font-family: 'Bangers';
+  font-size:16px;
+  font-family: 'Bangers';
 }
 
 #visualContainer {
-  position:relative;
-  width:550px;
-  height:365px;
   margin:15% auto;
-  /*animation: shake $time infinite;*/
+}
+
+.heroBox {
+  position: relative;
 }
 
 .hide {
   display: none;
 }
 
+@keyframes rightArmAttack {
+  0%{
+    transform: inherit;
+    margin-top: 18px;
+    margin-left: 105px;
+  }
+  50%{
+    transform: rotate(-90deg);
+    margin-top: -10px;
+    margin-left: 135px;
+  }
+  100%{
+    transform: rotate(0deg);
+    margin-top: 18px;
+    margin-left: 105px;
+  }
+}
 /*
 $verdeHulk: #bdbd00;
 $hulkPants:#581bbb;
@@ -34,14 +48,6 @@ $body:#43abf0;
 $bodyShadow:#29708f;
 $white:#fff;
 $whiteShadow:#ffffcb;
-$red:#b63700;
-$skin: #fdb0a4;
-$shield:#c53905;
-$thorbody:#004278;
-$thorshadow:#00272b;
-$thorskin:#ffcee7;
-$thorskinShadow:#ffc688;
-$hammer:#382727;
 $time:7s;
 
 
@@ -59,48 +65,6 @@ $time:7s;
     @content;
   }
 }
-@mixin star($top, $left) {
-   display: block;
-   color: $white;
-   width: 0px;
-   height: 0px;
-   border-right:  10px solid transparent;
-   border-bottom: 7px  solid $white;
-   border-left:   10px solid transparent;
-   margin-top: $top;
-   margin-left: $left; 
-   position: absolute;
-   transform:    rotate(35deg);
-   &::before {
-   border-bottom: 8px solid $white;
-   border-left: 3px solid transparent;
-   border-right: 3px solid transparent;
-   position: relative; 
-   height: 0;
-   width: 0;
-   top: -4px;
-   left: -6px;
-   display: block;
-   content: '';
-   transform: rotate(-35deg);
-}
-   &::after {
-   position: absolute;
-   display: block;
-   color: red;
-   top: 0px;
-   left: -10px;
-   width: 0px;
-   height: 0px;
-   border-right: 10px solid transparent;
-   border-bottom: 7px solid $white;
-   border-left: 10px solid transparent;
-   transform: rotate(-70deg);
-   content: '';
-}
-}
-    
-  */
 
 /*Hand Animation*/
 

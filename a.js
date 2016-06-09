@@ -14,20 +14,31 @@ var getHslColor = function(intValue, lightnessVariant) {
   return "hsl(" + intValue + ", 100%, " + lightness + "%)";
 };
 
-var createRandomHero = function(heroName) {
-  var hero = createHero(heroName);
+var createRandomHero = function(name, heroName) {
+  var hero = createHeroWithRandomColors(name, heroName);
   HEAD.append(STYLE);
 
   return hero;
 };
 
-var createHero = function(heroName) {
+// Basic shitty enemy
+var createPawn = function(name, heroName) {
+  var pawnColor = 0;
+  var hero = createHero(name, heroName, pawnColor, pawnColor, pawnColor);
+  HEAD.append(STYLE);
+
+  return hero;
+};
+
+var createHeroWithRandomColors = function(name, heroName) {
   var heroMainColor = getColorFromInput("#heroMainColor", chance.integer({min: 0, max: 360}));
   var heroSecondaryColor = getColorFromInput("#heroSecondaryColor", chance.integer({min: 0, max: 360}));
   var heroTertiaryColor = getColorFromInput("#heroTertiaryColor", chance.integer({min: 0, max: 360}));
-    
-    // Create Hero
-  var hero = createHeroElement(heroName);
+  return createHero(name, heroName, heroMainColor, heroSecondaryColor, heroTertiaryColor);  
+};
+
+var createHero = function(name, heroName, heroMainColor, heroSecondaryColor, heroTertiaryColor) {
+  var hero = createHeroElement(name, heroName);
   var helmet = createHelmet(hero, getHslColor(heroMainColor));
   createMaskForHelmet(hero, helmet, getHslColor(heroSecondaryColor));
   createArms(hero, getHslColor(heroMainColor), getHslColor(heroSecondaryColor));
@@ -42,9 +53,9 @@ var replaceAll = function(string, search, replace) {
   return string.split(search).join(replace);
 };
 
-var createHeroElement = function(heroName) {
-  var heroId = "hero_" + replaceAll(heroName, " ", "");
-  var heroDivCss = "#" + heroId + " {  position: absolute; z-index: 900; margin-left: 200; margin-bottom:135px; bottom:0; }";
+var createHeroElement = function(name, heroName) {
+  var heroId = "hero_" + replaceAll(name, " ", "") + "_" + replaceAll(heroName, " ", "");
+  var heroDivCss = "#" + heroId + " {  position: absolute; z-index: 900; }";
   addCssToStyleSheet(heroDivCss);
 
   var hero = $( "<div/>", {

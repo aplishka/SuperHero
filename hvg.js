@@ -8,34 +8,45 @@
       $("#heroText").html(hero.toString());
       $("#heroText").toggleClass("hidden");
 
-      var heroDesign = createRandomHero(hero.getHeroName());
+      var heroDesign = createRandomHero(hero.getName(), hero.getHeroName());
       $("#heroContainer").append(heroDesign);
 
-      $(this).toggleClass("hidden");
-      $("#createVillain").toggleClass("hidden");
+      $("#createContainer").toggleClass("hidden");
+      createRandomPawn();
     });
 
-    $("#createVillain").click(function() {
-      villain = new Hero().initHeroClass();
+    var createRandomPawn = function() {
+      villain = new Hero().initHeroClass().setHeroName("Grunt");
       $("#villainText").html(villain.toString());
       $("#villainText").toggleClass("hidden");
 
-      var heroDesign = createRandomHero(villain.getHeroName());
+      var heroDesign = createPawn(villain.getName(), villain.getHeroName());
       $("#villainContainer").append(heroDesign);
+    };
 
-      $(this).toggleClass("hidden");
-      $("#fight").toggleClass("hidden");
-      $("#fightTextTitle").toggleClass("hidden");
-    });
+    var someoneDied = function(closingStatement) {
+      $(closingStatement).toggleClass('hidden');
+    };
 
-    $("#fight").click(function() {
-      var damageResult = villain.takeDamage(hero.physicalAttack());
-      $("#fightText").append("<text>Health Remaining: " + damageResult['healthLeft'] + "</text>");
-      if (damageResult['dead']) {
-        $(this).toggleClass('hidden');
-        $("#youWin").toggleClass('hidden');
-        $("#tryAgain").toggleClass('hidden');
-      }
+    var attackPromise = function(attacker, attackee, closingStatement) {
+      var isDead = attack(attacker, attackee);
+        if(isDead) {
+          someoneDied(closingStatement);
+        }
+      return isDead;
+    };
+
+    var heroAttackPromise = function() {
+      return attackPromise(hero, villain, "#youWin");
+    };
+
+    var villainAttackPromise = function() {
+      return attackPromise(villain, hero, "#youLose");
+    };
+
+    $("#attack").click(function() {
+      $.when(heroAttackPromise())
+       .then(villainAttackPromise);
     });
 
     $("#tryAgain").click(function() {
@@ -101,9 +112,10 @@
     return races[getRandIntInBounds(races.length)];
   };
 
+  var heroClassesWeightedChances = [250000, 100000, 10000, 1000, 100, 10, 1];
   var heroClasses = ["vigilante", "sidekick", "hero", "superHero", "legend", "god", "dimensionalBeing"];
   var getHeroClass = function() {
-    return heroClasses[getRandIntInBounds(heroClasses.length)];
+    return chance.weighted(heroClasses, heroClassesWeightedChances);
   };
 
   // Util functions
@@ -232,10 +244,26 @@
         };
       };
 
+      this.getDivName = function() {
+        return "#hero_" + replaceAll(this.name, " ", "") + "_" + replaceAll(this.heroName, " ", "");
+      };
+
+      // Getters
       this.getHeroName = function() {
         return this.heroName;
       };
 
+      this.getName = function() {
+        return this.name;
+      };
+
+      // Setters
+      this.setHeroName = function(name) {
+        this.heroName = name;
+        return this;
+      };
+
+      // Class functions
       this.toString = function() {
           return "Name: " + this.name +
                ", Hero Name: " + this.heroName +
