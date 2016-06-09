@@ -3098,6 +3098,7 @@ a.box:active {
       -ms-flex: 1;
           flex: 1;
   padding: 10px;
+  margin: 10px;
 }
 
 .columns.is-mobile > .column.is-narrow {

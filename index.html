@@ -1,0 +1,169 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	<!-- https://fontawesome.io -->
+	<link rel="stylesheet" type="text/css" href="includes/css/bulma.css">										<!-- https://bulma.io -->
+
+	<link rel="stylesheet" type="text/css" href="includes/css/main.css">										<!-- Local stylesheets -->
+	<link rel="stylesheet" type="text/css" href="includes/css/heroDesign.css">
+</head>
+
+<body>
+	<nav class="nav">
+	  <div class="nav-left">
+	    <a class="nav-item" href="#">"SuperHeroGame"</a>
+	  </div>
+
+	  <div class="nav-right nav-menu">
+	    <span class="nav-item">
+	      <a class="button" >
+	        <span class="icon">
+	          <i class="fa fa-twitter"></i>
+	        </span>
+	        <span>Tweet</span>
+	      </a>
+	    </span>
+	  </div>
+	</nav>
+
+	<section id="createContainer" class="container">
+		<section id="buttonContainer">
+		    <div id="createHeroContainer" class="columns">
+		      <div class="column">
+		        <label for="heroMainColor">Main color:</label>
+		        <input class="input" type="text" id="heroMainColor" />
+		      </div>
+		      <div class="column">
+		        <label for="heroSecondaryColor">Secondary color:</label>
+		        <input class="input" type="text" id="heroSecondaryColor" />
+		      </div>
+		      <div class="column">
+		        <label for="heroTertiaryColor">Tertiary color:</label>
+		        <input class="input" type="text" id="heroTertiaryColor" />
+		      </div>
+		    </div>
+			<a id="createHero" class="button is-primary">Create Hero</a>
+		</section>
+	</section>
+
+	<section id="visualContainer" class="container columns">
+		<div id="heroInfoColumn" class="column box">
+			<!-- Tab Nav Bar -->
+			<div id="heroInfo" class="tabs is-toggle">
+			  <ul>
+			    <li class="is-active"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Hero</a></li>
+			    <li><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Other</a></li>
+		      </ul>
+			</div>
+
+			<!-- Information about the Hero goes here -->
+			<div class="info box">
+				<label class="label">Name</label>
+				<p id="name" class="control"></p>
+				<label class="label">Secret Identity</label>
+				<p id="secretIdentity" class="control"></p>
+				<label class="label">Race</label>
+				<p id="race" class="control"></p>
+				<label class="label">Nationality</label>
+				<p id="nationality" class="control"></p>
+				<label class="label">Class</label>
+				<p id="class" class="control"></p>
+			</div>
+
+			<!-- Stats information about the Hero goes here -->
+			<div class="statsInfo box">
+				<label class="label">Stats</label>
+				<progress class="progress is-medium is-success" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+			</div>
+
+			<!-- Actions an their triggers go here -->
+			<a id="attack" class="button is-danger">Attack!</a>
+		</div>
+
+		<div id="battleBox" class="column columns">
+			<div id="heroColumn" class="column">
+				<div id="heroBox" class="heroBox">
+					<div id="heroContainer" class="heroContainer"></div>
+				</div>
+			</div>
+			<div id="villainColumn" class="column">
+				<div id="villainBox" class="heroBox">
+					<div id="villainContainer" class="heroContainer column"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="villainInfoColumn" class="column box">
+			<!-- Tab Nav Bar -->
+			<div id="villainInfo" class="tabs is-toggle">
+			  <ul>
+			    <li class="is-danger"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Villain</a></li>
+		      </ul>
+			</div>
+
+			<!-- Information about the Hero goes here -->
+			<div class="info box">
+				<label class="label">Name</label>
+				<p id="name" class="control"></p>
+				<label class="label">Secret Identity</label>
+				<p id="secretIdentity" class="control"></p>
+				<label class="label">Race</label>
+				<p id="race" class="control"></p>
+				<label class="label">Nationality</label>
+				<p id="nationality" class="control"></p>
+				<label class="label">Class</label>
+				<p id="class" class="control"></p>
+			</div>
+
+			<!-- Stats information about the Hero goes here -->
+			<div class="statsInfo box">
+				<label class="label">Stats</label>
+				<progress class="progress is-medium is-success" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+				<progress class="progress is-small" value="0" max="100"></progress>
+			</div>
+		</div>
+	</section>
+
+	<section id="feedContainer" class="container">
+		<label class="label">What's happening:</label>
+		<section id="textContainer" class="box">
+			<text id="heroText" style="color: DarkGreen;" class="hidden"></text>
+			<text id="villainText" style="color: DarkRed;" class="hidden"></text>
+			<textarea id="fightText" class="textarea" placeholder="Fight Log:" readonly></textarea>
+		</section>
+
+		<h1 id="youWin" class="hidden">You Win!!</h1>
+		<h1 id="youLose" class="hidden">You Lose :( :(</h1>
+		<a id="tryAgain" class="button is-success hidden">Try Again?</a>
+	</section>
+
+	<footer class="footer">
+	  <div class="container">
+	    <div class="content has-text-centered">
+	      <p><strong>"SuperHeroGame"</strong> by <a href="http://alexplishka.com">Alex Plishka</a>. &copy; 2016</p>
+	      <p>
+	        <a class="icon" href="https://github.com/aplishka">
+	          <i class="fa fa-github"></i>
+	        </a>
+	      </p>
+	    </div>
+	  </div>
+	</footer>
+
+	<!-- Javascript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>	<!-- jQuery -->
+	<script src="includes/js/lib/jquery.keyframes.min.js"></script>								<!-- https://github.com/Keyframes/jQuery.Keyframes -->
+	<script src="http://chancejs.com/chance.min.js"></script>									<!-- chance.js -->
+	
+  	<script src="includes/js/heroDesign.js"></script>											<!-- Local js -->
+  	<script src="includes/js/name.js"></script>
+  	<script src="includes/js/battle.js"></script>
+	<script src="includes/js/main.js"></script>
+</body>
+</html>

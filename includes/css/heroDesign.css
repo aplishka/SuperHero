@@ -1,0 +1,43 @@
+/*@import "compass/css3";*/
+
+@import url(http://fonts.googleapis.com/css?family=Bangers);
+  
+*, *:before, *:after { 
+  box-sizing: border-box;
+}
+
+body {
+  background: #c0c0c0;
+  font-size:16px;
+  font-family: 'Bangers';
+}
+
+#visualContainer {
+  margin:15% auto;
+}
+
+.heroBox {
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes rightArmAttack {
+  0%{
+    transform: inherit;
+    margin-top: 18px;
+    margin-left: 105px;
+  }
+  50%{
+    transform: rotate(-90deg);
+    margin-top: -10px;
+    margin-left: 135px;
+  }
+  100%{
+    transform: rotate(0deg);
+    margin-top: 18px;
+    margin-left: 105px;
+  }
+}
