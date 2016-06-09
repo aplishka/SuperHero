@@ -5,7 +5,7 @@
 
     $("#createHero").click(function() {
       hero = new Hero().initHeroClass();
-      writeHeroInfoToCard("#heroInfoColumn .info", hero);
+      writeHeroInfoToCard("#heroInfoColumn", hero);
       $("#heroText").toggleClass("hidden");
 
       var heroDesign = createRandomHero(hero.getName(), hero.getHeroName());
@@ -15,18 +15,31 @@
       createRandomPawn();
     });
 
+    var writeStatsInfoToCard = function(cardId, stats) {
+      var id = cardId + " .statsInfo";
+      $(".health", $(cardId)).val(stats.getHealth()).attr("max", stats.getHealth());
+      $(".strength", $(cardId)).val(stats.getStrength());
+      $(".intelligence", $(cardId)).val(stats.getIntelligence());
+      $(".speed", $(cardId)).val(stats.getSpeed());
+      $(".combat", $(cardId)).val(stats.getCombat());
+      $(".durability", $(cardId)).val(stats.getDurability());
+      $(".power", $(cardId)).val(stats.getPower());
+    };
+
     var writeHeroInfoToCard = function(cardId, hero) {
-      var infoBox = $(cardId);
-      $("#name", $(cardId)).text(hero.getHeroName());
-      $("#secretIdentity", $(cardId)).text(hero.getName());
-      $("#race", $(cardId)).text(hero.getRace());
-      $("#nationality", $(cardId)).text(hero.getCountry());
-      $("#class", $(cardId)).text(hero.getHeroClass());
+      var id = cardId + " .info";
+      $("#name", $(id)).text(hero.getHeroName());
+      $("#secretIdentity", $(id)).text(hero.getName());
+      $("#race", $(id)).text(hero.getRace());
+      $("#nationality", $(id)).text(hero.getCountry());
+      $("#class", $(id)).text(hero.getHeroClass());
+
+      writeStatsInfoToCard(cardId, hero.getStats());
     };
 
     var createRandomPawn = function() {
       villain = new Hero().initHeroClass().setHeroName("Grunt");
-      writeHeroInfoToCard("#villainInfoColumn .info", villain);
+      writeHeroInfoToCard("#villainInfoColumn", villain);
       $("#villainText").toggleClass("hidden");
 
       var heroDesign = createPawn(villain.getName(), villain.getHeroName());
@@ -173,10 +186,27 @@
         return this.strength;
       };
 
+      this.getIntelligence = function() {
+        return this.intelligence;
+      };
+
+      this.getSpeed = function() {
+        return this.speed;
+      };
+
       this.getCombat = function() {
         return this.combat;
       };
 
+      this.getDurability = function() {
+        return this.durability;
+      };
+
+      this.getPower = function() {
+        return this.power;
+      };
+
+      // Useful functions
       this.takeDamage = function(attackMap) {
         var damage = attackMap['combat'] + attackMap['strength'];
         this.health -= damage;
@@ -247,8 +277,13 @@
       };
 
       this.takeDamage = function(attackMap) {
+        var initialHealth = this.stats.getHealth();
+
         var isDead = this.stats.takeDamage(attackMap);
-        return { healthLeft: this.stats.getHealth(),
+        var healthLeft = this.stats.getHealth();
+        
+        return { damageDone: initialHealth - healthLeft,
+                 healthLeft: healthLeft,
                  dead: isDead
         };
       };
@@ -276,6 +311,10 @@
 
       this.getHeroClass = function() {
         return this.heroClass;
+      };
+
+      this.getStats = function() {
+        return this.stats;
       };
 
       // Setters

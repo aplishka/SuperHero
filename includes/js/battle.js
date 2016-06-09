@@ -36,8 +36,9 @@ var physicalAttack = function(attacker, attackee, id, animation) {
   var isDead = false;
   $.when(playAnimation(id, animation, "2s"))
    .done(function() {
+
       var damageResult = attackee.takeDamage(attacker.physicalAttack());
-      $("#fightText").append("<text>" + attackee.getHeroName() + " Health Remaining: " + damageResult['healthLeft'] + "</text>");
+      $("#fightText").append(attacker.getHeroName() + " dished out " + damageResult['damageDone'] + " damage!\n");
       if (damageResult['dead']) {
         isDead = true;
       }
