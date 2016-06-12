@@ -5,6 +5,7 @@
 
     $("#createHero").click(function() {
       hero = new Hero().initHeroClass();
+      hero.initRandomPowers(powerClassQuotient[hero.getHeroClass()] + 1);
       writeHeroInfoToCard("#heroInfoColumn", hero);
       $("#heroText").toggleClass("hidden");
 
@@ -14,6 +15,15 @@
       $("#createContainer").toggleClass("hidden");
       createRandomPawn();
     });
+
+    var writePowersInfoToCard = function(cardId, powers) {
+      if(powers) {
+        var id = cardId + " .powerInfo";
+        powers.forEach(function(power) {
+          $("#powers", $(cardId)).append("<text>" + power + "</text>");
+        });
+      }
+    };
 
     var writeStatsInfoToCard = function(cardId, stats) {
       var id = cardId + " .statsInfo";
@@ -36,6 +46,7 @@
       $("#class", $(id)).text(hero.getHeroClass());
 
       writeStatsInfoToCard(cardId, hero.getStats());
+      writePowersInfoToCard(cardId, hero.getPowers());
     };
 
     var createRandomPawn = function() {
@@ -149,6 +160,7 @@
            illusion:      ["mentalIllusion", "physicalIllusion"],
            shapeshifting:     ["animalMorphing", "elasticity", "inorganic", "liquification", "metamorphosis", "sizeShifting", "sublimation", "substanceMimicry"]
   };
+  var keysOfPowersList = Object.keys(powers);
 
   var races = ["human", "alien", "animal", "synthetic", "subHuman"];
   var getRace = function() {
@@ -265,6 +277,7 @@
       var country;
       var heroClass;
       this.stats;
+      var heroPowers = new Array();
 
       var sidekicks = [];
       var nemeses = [];
@@ -294,6 +307,20 @@
 
       this.addSidekick = function() {
         this.sidekicks.add(new Hero().initHeroClass("sidekick"));
+      };
+
+      // Power Functions
+      this.initRandomPowers = function(numPowers) {
+        this.heroPowers = new Array();
+        var powerType = chance.pickone(keysOfPowersList);
+        var availablePowerList = ($.makeArray(powers)[0])[powerType];
+        
+        for(var i=0; i<numPowers; i++) {
+          var index = chance.integer({min: 0, max: availablePowerList.length});
+          this.heroPowers.push(removeAndGetFromArrayAtIndex(availablePowerList, index));
+        }
+
+        return this;
       };
 
       // Fighting Functions
@@ -346,6 +373,10 @@
 
       this.getStats = function() {
         return this.stats;
+      };
+
+      this.getPowers = function() {
+        return this.heroPowers;
       };
 
       // Setters
