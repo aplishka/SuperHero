@@ -30,6 +30,7 @@
       var id = cardId + " .info";
       $("#name", $(id)).text(hero.getHeroName());
       $("#secretIdentity", $(id)).text(hero.getName());
+      $("#sex", $(id)).text(hero.getSex());
       $("#race", $(id)).text(hero.getRace());
       $("#nationality", $(id)).text(hero.getCountry());
       $("#class", $(id)).text(hero.getHeroClass());
@@ -58,12 +59,32 @@
       return isDead;
     };
 
+    var updateHeroExperienceOnScreen = function(xpGained) {
+      var xp = $("#heroInfoColumn .experience").val();
+      $("#heroInfoColumn .experience").val(xp + xpGained);
+    };
+
+    var updateHeroHealthOnScreen = function() {
+      $("#heroInfoColumn .health").val(hero.getStats().getHealth());
+    };
+
+    var updateVillainHealthOnScreen = function() {
+      $("#villainInfoColumn .health").val(villain.getStats().getHealth());
+    };
+
     var heroAttackPromise = function() {
-      return attackPromise(hero, villain, "#youWin");
+      var promise = attackPromise(hero, villain, "#youWin");
+      updateVillainHealthOnScreen();
+      if(promise) {
+        updateHeroExperienceOnScreen(1);
+      }
+      return promise;
     };
 
     var villainAttackPromise = function() {
-      return attackPromise(villain, hero, "#youLose");
+      var promise = attackPromise(villain, hero, "#youLose");
+      updateHeroHealthOnScreen();
+      return promise;
     };
 
     $("#attack").click(function() {
@@ -143,6 +164,10 @@
   // Util functions
   var getRandIntInBounds = function(length) {
     return chance.integer({min: 0, max: length - 1});
+  };
+
+  var getSexOfNewHero = function() {
+    return chance.weighted(["male", "female", "transgender"], [101, 100, 0.3]);
   };
 
   // Our main classes
@@ -233,6 +258,7 @@
   };
 
   var Hero = function() {
+      var sex;
       var name;
       var heroName;
       var race;
@@ -249,10 +275,11 @@
 
       // Constructor
       var __construct = function(that) {
-        that.name = chance.name();
+        that.sex = getSexOfNewHero();
+        that.name = chance.name({ gender: (that.sex === "transgender" ? chance.gender() : that.sex)});
         that.heroName = createRandomHeroName();
         that.race = getRace();
-        that.country = chance.country({ full: true });
+        that.country = getCountryByChanceByPopulation();
       }(this);
 
       this.initHeroClass = function() {
@@ -295,6 +322,10 @@
       // Getters
       this.getHeroName = function() {
         return this.heroName;
+      };
+
+      this.getSex = function() {
+        return this.sex;
       };
 
       this.getName = function() {

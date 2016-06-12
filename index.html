@@ -50,35 +50,50 @@
 			<!-- Tab Nav Bar -->
 			<div id="heroInfo" class="tabs is-toggle">
 			  <ul>
-			    <li class="is-active"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Hero</a></li>
-			    <li><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Other</a></li>
+			    <li id="heroStatsInfo" class="is-active"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Stats</a></li>
+			    <li id="heroPowerInfo"><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Powers</a></li>
+			    <li id="heroInfo"><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Info</a></li>
 		      </ul>
-			</div>
-
-			<!-- Information about the Hero goes here -->
-			<div class="info box">
-				<label class="label">Name</label>
-				<p id="name" class="control"></p>
-				<label class="label">Secret Identity</label>
-				<p id="secretIdentity" class="control"></p>
-				<label class="label">Race</label>
-				<p id="race" class="control"></p>
-				<label class="label">Nationality</label>
-				<p id="nationality" class="control"></p>
-				<label class="label">Class</label>
-				<p id="class" class="control"></p>
 			</div>
 
 			<!-- Stats information about the Hero goes here -->
 			<div class="statsInfo box">
 				<label class="label">Stats</label>
+				<label>Health</label>
 				<progress class="health progress is-medium is-success" value="0" max="100"></progress>
+				<label>Experience</label>
+				<progress class="experience progress is-medium is-info" value="0" max="2"></progress>
+
 				<progress class="strength progress is-small" value="0" max="100"></progress>
 				<progress class="intelligence progress is-small" value="0" max="100"></progress>
 				<progress class="speed progress is-small" value="0" max="100"></progress>
 				<progress class="combat progress is-small" value="0" max="100"></progress>
 				<progress class="durability progress is-small" value="0" max="100"></progress>
 				<progress class="power progress is-small" value="0" max="100"></progress>
+			</div>
+
+			<!-- Information about the Hero's powers goes here -->
+			<div class="powerInfo box hidden">
+				<label class="label">Power Type</label>
+				<p id="powerType" class="control"></p>
+				<label class="label">Powers</label>
+				<p id="powers" class="control"></p>
+			</div>
+
+			<!-- Information about the Hero goes here -->
+			<div class="info box hidden">
+				<label class="label">Name</label>
+				<p id="name" class="control"></p>
+				<label class="label">Secret Identity</label>
+				<p id="secretIdentity" class="control"></p>
+				<label class="label">Sex</label>
+				<p id="sex" class="control"></p>
+				<label class="label">Race</label>
+				<p id="race" class="control"></p>
+				<label class="label">Nationality</label>
+				<p id="nationality" class="control"></p>
+				<label class="label">Class</label>
+				<p id="class" class="control"></p>
 			</div>
 
 			<!-- Actions an their triggers go here -->
@@ -102,27 +117,16 @@
 			<!-- Tab Nav Bar -->
 			<div id="villainInfo" class="tabs is-toggle">
 			  <ul>
-			    <li class="is-danger"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Villain</a></li>
+			    <li id="villainStatsInfo" class="is-active"><a><span class="icon is-small"><i class="fa fa-user"></i></span>Stats</a></li>
+			    <li id="villainPowerInfo"><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Powers</a></li>
+			    <li id="villainInfo"><a><span class="icon is-small"><i class="fa fa-info-circle"></i></span>Info</a></li>
 		      </ul>
-			</div>
-
-			<!-- Information about the Hero goes here -->
-			<div class="info box">
-				<label class="label">Name</label>
-				<p id="name" class="control"></p>
-				<label class="label">Secret Identity</label>
-				<p id="secretIdentity" class="control"></p>
-				<label class="label">Race</label>
-				<p id="race" class="control"></p>
-				<label class="label">Nationality</label>
-				<p id="nationality" class="control"></p>
-				<label class="label">Class</label>
-				<p id="class" class="control"></p>
 			</div>
 
 			<!-- Stats information about the Hero goes here -->
 			<div class="statsInfo box">
 				<label class="label">Stats</label>
+				<label>Health</label>
 				<progress class="health progress is-medium is-success" value="0" max="100"></progress>
 				<progress class="strength progress is-small" value="0" max="100"></progress>
 				<progress class="intelligence progress is-small" value="0" max="100"></progress>
@@ -130,6 +134,30 @@
 				<progress class="combat progress is-small" value="0" max="100"></progress>
 				<progress class="durability progress is-small" value="0" max="100"></progress>
 				<progress class="power progress is-small" value="0" max="100"></progress>
+			</div>
+
+			<!-- Information about the Hero's powers goes here -->
+			<div class="powerInfo box hidden">
+				<label class="label">Power Type</label>
+				<p id="powerType" class="control"></p>
+				<label class="label">Powers</label>
+				<p id="powers" class="control"></p>
+			</div>
+
+			<!-- Information about the Hero goes here -->
+			<div class="info box hidden">
+				<label class="label">Name</label>
+				<p id="name" class="control"></p>
+				<label class="label">Secret Identity</label>
+				<p id="secretIdentity" class="control"></p>
+				<label class="label">Sex</label>
+				<p id="sex" class="control"></p>
+				<label class="label">Race</label>
+				<p id="race" class="control"></p>
+				<label class="label">Nationality</label>
+				<p id="nationality" class="control"></p>
+				<label class="label">Class</label>
+				<p id="class" class="control"></p>
 			</div>
 		</div>
 	</section>
@@ -168,6 +196,8 @@
   	<script src="includes/js/heroDesign.js"></script>											<!-- Local js -->
   	<script src="includes/js/name.js"></script>
   	<script src="includes/js/battle.js"></script>
+  	<script src="includes/js/layout.js"></script>
+  	<script src="includes/js/countries.js"></script>
 	<script src="includes/js/main.js"></script>
 </body>
 </html>
